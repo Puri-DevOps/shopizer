@@ -9,17 +9,18 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: shopizerecomm/ci:java11
+    container: 
+      image: shopizerecomm/ci:java11
+      volumes:
+        - ~/.m2:/home/shopizer/.m2
     steps:
       - name: Checkout code
         uses: actions/checkout@v4      
       - name: Cache local Maven repository
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.m2/repository
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: |
-            ${{ runner.os }}-maven-
       - name: TEST Build
         run: /home/shopizer/tools/shopizer.sh tests
 
