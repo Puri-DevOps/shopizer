@@ -12,5 +12,5 @@ jobs:
     container: shopizerecomm/ci:java11
     steps:
       - name: Checkout code
-      - uses: actions/checkout@v4      
+        uses: actions/checkout@v4      
 
