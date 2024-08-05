@@ -1,0 +1,16 @@
+name: shopizer CI
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: shopizerecomm/ci:java11
+    steps:
+      - name: Checkout code
+      - uses: actions/checkout@v4      
+
