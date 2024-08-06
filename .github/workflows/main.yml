@@ -9,7 +9,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: shopizerecomm/ci:java11
+    container: 
+      image: shopizerecomm/ci:java11
+      volumes: 
+        - ~/.m2:~/.m2
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
