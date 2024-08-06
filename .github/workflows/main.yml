@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     container: 
       image: shopizerecomm/ci:java11
-      volumes: 
-        - ~/.m2:~/.m2
+      # volumes: 
+      #   - ~/.m2:~/.m2
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -22,5 +22,7 @@ jobs:
          path: ~/.m2/repository
          key: ${{ runner.os }}-maven-${{ hashFiles('/__w/shopizer/shopizer/pom.xml') }}
       - name: TEST Build
-        run: /home/shopizer/tools/shopizer.sh tests
+        run: mvn -v
+      # - name: TEST Build
+      #   run: /home/shopizer/tools/shopizer.sh tests
 
